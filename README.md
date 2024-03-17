@@ -60,4 +60,80 @@ Graphs can be visualized using Graphviz by converting the `.dot` files generated
 
 ---
 
-Feel free to adjust any part of this template to better suit your project's needs or personal preferences. If you have any more requests or need further assistance, just let me know!
+Here's a simplified version of the README for the Simple Allocator assignment:
+
+---
+
+# Simple Allocator Assignment
+
+## Overview
+
+This assignment involves implementing a simple memory allocator. The main objective is to gain a deeper understanding of memory management and linked list data structures.
+
+## Implementation
+
+Your task is to create a `SimpleAllocator.cpp` file that conforms to the `SimpleAllocator` class provided in the `SimpleAllocator.h` file. The `test.cpp` file contains tests for your implementation, and your goal is to pass all these tests.
+
+## Approach
+
+1. Read the `SimpleAllocator.h` file to understand the interface of the `SimpleAllocator` class.
+2. Read the `test.cpp` file to understand the tests.
+3. Implement the `SimpleAllocator` class in the `SimpleAllocator.cpp` file to pass the tests, starting with `test0`.
+4. Compile and test with each test case using the commands provided below.
+5. Proceed to the next test case if the current test passes.
+
+## Compilation and Testing
+
+Use the following commands in the terminal:
+
+- **Compile the code:**
+  ```
+  make
+  ```
+- **Run a specific test:**
+  ```
+  make test<test_number>
+  ```
+  Replace `<test_number>` with the correct test number.
+- **Clean up compiled files:**
+  ```
+  make clean
+  ```
+
+## SimpleAllocator
+
+The `SimpleAllocator` is responsible for allocating and freeing memory blocks. It manages a linked list of pages and a linked list of free blocks. The allocator breaks up a page of memory into blocks and maintains these lists for efficient memory allocation and deallocation.
+
+## Memory Layout
+
+The memory layout typically includes a pointer to the next page, alignment padding, headers, and memory blocks. The allocator uses two linked lists: one for the pages and another for the free blocks.
+
+## Example
+
+Here's an example of the memory layout after constructing the allocator, allocating two blocks, and freeing one block:
+
+```
+Constructing the allocator:
+- Allocate a page of memory.
+- Break up the memory into blocks.
+- Initialize the page list and free list.
+
+Allocating memory:
+- Return the first free block to the client.
+- Update the free list and allocation statistics.
+
+Freeing memory:
+- Mark the block as free.
+- Add the block to the head of the free list.
+- Update the allocation statistics.
+```
+
+## Memory Signatures
+
+Memory signatures are used to check the integrity of the memory. The allocator uses different patterns to mark unallocated, allocated, and freed memory, as well as padding to detect buffer overruns.
+
+## Allocator Statistics
+
+The allocator maintains statistics about object size, page size, number of free objects, objects in use, pages in use, most objects in use, allocations, and deallocations. These statistics help track the allocator's performance and usage.
+
+---
