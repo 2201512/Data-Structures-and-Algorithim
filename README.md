@@ -60,8 +60,6 @@ Graphs can be visualized using Graphviz by converting the `.dot` files generated
 
 ---
 
-Here's a simplified version of the README for the Simple Allocator assignment:
-
 ---
 
 # Simple Allocator Assignment
@@ -135,5 +133,112 @@ Memory signatures are used to check the integrity of the memory. The allocator u
 ## Allocator Statistics
 
 The allocator maintains statistics about object size, page size, number of free objects, objects in use, pages in use, most objects in use, allocations, and deallocations. These statistics help track the allocator's performance and usage.
+
+---
+
+---
+
+# Binary Search Tree (BST) Assignment
+
+## Overview
+
+This assignment involves implementing a Binary Search Tree (BST) as an Abstract Data Type (ADT) container. While a BST is a relatively simple tree structure, mastering its implementation will lay the foundation for working with more complex tree structures, such as Octrees and Merkle Trees.
+
+## Implementation
+
+Your task is to create a `BST.cpp` file that conforms to the `BST` class provided in the `BST.h` file. The `test.cpp` file contains test cases for your implementation, and your goal is to pass all these tests.
+
+## Compilation and Testing
+
+Use the following commands in the terminal:
+
+- **Compile the code:**
+  ```
+  make
+  ```
+- **Run a specific test:**
+  ```
+  make test<test_number>
+  ```
+  Replace `<test_number>` with the correct test number.
+- **Run a test without comparing to the expected output:**
+  ```
+  make test<test_number>-nocompare
+  ```
+- **Clean up compiled files:**
+  ```
+  make clean
+  ```
+
+## Description
+
+The BST should use an allocator to manage memory for the nodes. A dummy `SimpleAllocator.h` is provided. The data stored in the BST should be unique, and duplicates should be rejected with a `BST_EXCEPTION::E_DUPLICATE` exception.
+
+## Templated
+
+The BST class is templated, allowing it to store any type of data. The implementation file should be included in the header (`#include "BST.cpp"`) due to the templated nature of the class.
+
+## Subscript Operator
+
+Implementing the subscript `[]` operator is a challenging part of this assignment. It requires a helper function for recursion to find the node at a given index. The implementation should follow the algorithm provided in the assignment description.
+
+## Stress Test
+
+Test case 10 is a stress test that involves a large number of insertions and deletions. It is left as an exercise to optimize the implementation for better performance.
+
+---
+
+---
+
+# AVL Tree Assignment
+
+## Overview
+
+This assignment involves creating an AVL Tree, a self-balancing binary search tree. The main objective is to implement the AVL tree and ensure that it maintains its balance property after every insertion and deletion operation.
+
+## Implementation
+
+Your task is to create an `AVL.cpp` file that conforms to the `AVL` class provided in the `AVL.h` file. The `test.cpp` file contains test cases for your implementation, and your goal is to pass all these tests.
+
+## Compilation and Testing
+
+Use the following commands in the terminal:
+
+- **Compile the code:**
+  ```
+  make
+  ```
+- **Run a specific test:**
+  ```
+  make test<test_number>
+  ```
+  Replace `<test_number>` with the correct test number.
+- **Clean up compiled files:**
+  ```
+  make clean
+  ```
+
+## Description
+
+The AVL tree is a balanced binary search tree (BST). You may inherit from an existing BST implementation and override the necessary code to ensure balance. The AVL tree must maintain the property that the height of the left and right subtrees of every node differ by at most 1.
+
+Start with the basic BST operations in the first two test cases. Subsequent test cases will check if the operations maintain the AVL tree's balance.
+
+## Rotations
+
+Implement the rotation operations as described in class. You may choose your own method names for these operations. After a rotation, remember to update the parent of the subtree to point to the new root.
+
+## Inorder Traversal
+
+Implement an inorder traversal method to print the tree. This is required for the last test case.
+
+## Memory Allocation
+
+A dummy `SimpleAllocator` is provided for node allocation and deallocation. While the tests do not specifically check for memory allocation strategies, it is recommended to use the `SimpleAllocator` appropriately.
+
+## Notes
+
+- The test cases are designed to test a variety of scenarios. Passing all test cases here is a good indication of your implementation's correctness, but additional tests may be used during grading.
+- If your implementation simply generates output files that match the expected outputs without properly implementing the AVL operations, marks will be deducted accordingly.
 
 ---
